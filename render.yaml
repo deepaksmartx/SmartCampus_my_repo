@@ -1,0 +1,43 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# After first deploy: set REACT_APP_API_URL on the static site to your API URL (https://…onrender.com), no trailing slash.
+
+databases:
+  - name: smartcampus-db
+    databaseName: smartcampus
+    user: smartcampus
+
+services:
+  - type: web
+    name: smartcampus-api
+    runtime: python
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smartcampus-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: IOT_INGEST_API_KEY
+        generateValue: true
+      # ThingsBoard + SMTP: set in the Render dashboard (do not commit secrets)
+      - key: THINGSBOARD_BASE_URL
+        sync: false
+      - key: THINGSBOARD_USERNAME
+        sync: false
+      - key: THINGSBOARD_PASSWORD
+        sync: false
+
+  - type: web
+    name: smartcampus-web
+    runtime: static
+    region: oregon
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        sync: false

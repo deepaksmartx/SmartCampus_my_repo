@@ -1,0 +1,21 @@
+# Web
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+
+# Database - PostgreSQL (Neon, etc.)
+psycopg2-binary>=2.9.0
+
+# SQLAlchemy
+sqlalchemy>=2.0.0
+
+# Auth & env
+python-dotenv>=1.0.0
+python-multipart>=0.0.6
+passlib[bcrypt]>=1.7.4
+python-jose[cryptography]>=3.3.0
+
+# Scheduled jobs (sensor data retention)
+apscheduler>=3.10.0
+
+# Python 3.9 compatibility for X | None type syntax with Pydantic/FastAPI
+eval_type_backport>=0.2.0

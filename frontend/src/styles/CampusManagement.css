@@ -1,0 +1,262 @@
+/* Campus Management - reuse dashboard header styles from Dashboard.css */
+.campus-page {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.campus-loading {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.campus-content {
+  flex: 1;
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.campus-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.campus-tab {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.campus-tab:hover {
+  color: var(--primary);
+}
+
+.campus-tab.active {
+  box-shadow: var(--shadow-inset-dark), var(--shadow-inset-light);
+  color: var(--secondary); /* Green - Campus feel */
+  font-weight: 700;
+}
+
+.campus-error {
+  background-color: #fff4f1; /* Soft orange tint */
+  color: var(--accent); /* Orange - Alert */
+  padding: 14px 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: inset 2px 2px 5px rgba(234, 88, 12, 0.1);
+}
+
+.campus-toolbar {
+  margin-bottom: 25px;
+}
+
+.campus-btn-add {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(109, 93, 252, 0.3);
+}
+
+.campus-btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 15px rgba(109, 93, 252, 0.4);
+}
+
+.campus-table-wrap {
+  background-color: var(--bg-color);
+  border-radius: 24px;
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.campus-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.campus-table th {
+  padding: 18px 24px;
+  text-align: left;
+  border-bottom: 2px solid rgba(163, 177, 198, 0.1);
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campus-table td {
+  padding: 18px 24px;
+  text-align: left;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.05);
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.campus-table tbody tr:hover {
+  background-color: rgba(163, 177, 198, 0.05);
+}
+
+.campus-btn-edit, .campus-btn-delete {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--bg-color);
+  margin-right: 10px;
+}
+
+.campus-btn-edit {
+  border: none;
+  color: var(--primary);
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+}
+
+.campus-btn-edit:hover {
+  box-shadow: inset 2px 2px 5px rgba(163, 177, 198, 0.4);
+}
+
+.campus-btn-delete {
+  border: none;
+  color: #e53935;
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+}
+
+.campus-btn-delete:hover {
+  box-shadow: inset 2px 2px 5px rgba(163, 177, 198, 0.4);
+}
+
+.campus-empty {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-main);
+  opacity: 0.7;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  box-shadow: var(--shadow-inset-dark), var(--shadow-inset-light);
+}
+
+/* Modal */
+.campus-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.campus-modal {
+  background-color: var(--bg-color);
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.campus-modal h3 {
+  margin: 0 0 25px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.campus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.campus-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.campus-form input[type="text"],
+.campus-form input[type="number"],
+.campus-form select {
+  padding: 12px 16px;
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-inset-dark), var(--shadow-inset-light);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.campus-modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.campus-btn-cancel {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  color: #777;
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.campus-btn-cancel:hover {
+  box-shadow: inset 2px 2px 5px rgba(163, 177, 198, 0.4);
+}
+
+.campus-btn-save {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 10px rgba(109, 93, 252, 0.3);
+}
+
+.campus-btn-save:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 15px rgba(109, 93, 252, 0.4);
+}

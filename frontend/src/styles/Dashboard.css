@@ -1,0 +1,1049 @@
+/* Dashboard Page Styles */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header: title left, Profile + Logout right */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 80px;
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+  border-bottom: none;
+  flex-shrink: 0;
+  z-index: 30;
+  color: white;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-header-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dashboard-profile-wrap {
+  position: relative;
+}
+
+.dashboard-profile-icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  color: var(--primary); /* Deep Blue for Badge/Profile */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.dashboard-profile-icon-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.6);
+}
+
+.dashboard-profile-dropdown {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  min-width: 300px;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  box-shadow: var(--shadow-dark);
+  padding: 24px;
+  z-index: 40;
+  animation: dashboardDropdownIn 0.3s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@keyframes dashboardDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-profile-dropdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+  font-size: 14px;
+}
+
+.dashboard-profile-dropdown-row:last-child {
+  border-bottom: none;
+}
+
+.dashboard-profile-dropdown-row .label {
+  color: #777;
+  margin-right: 12px;
+}
+
+.dashboard-profile-dropdown-row .value {
+  color: var(--text-heading);
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+
+.dashboard-profile-input {
+  flex: 1;
+  min-width: 0;
+  max-width: 160px;
+  padding: 8px 12px;
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-inset-dark), var(--shadow-inset-light);
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.dashboard-header-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+}
+
+.dashboard-header-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.dashboard-header-logout {
+  color: #e53935;
+}
+
+.dashboard-header-logout:hover:not(:disabled) {
+  color: #d32f2f;
+  background-color: rgba(229, 57, 53, 0.05);
+}
+
+/* Main content area */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow: auto;
+}
+
+.dashboard-card {
+  background-color: var(--white);
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 50px;
+  max-width: 1000px;
+  width: 100%;
+  animation: slideIn 0.4s ease-out;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.professional-centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-welcome {
+  margin: 0 0 10px 0;
+  color: var(--text-heading);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.dashboard-card .subtitle {
+  margin: 0 0 35px 0;
+  color: var(--text-main);
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.dashboard-campus-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  transition: all 0.3s ease;
+}
+
+.dashboard-campus-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 14px rgba(163, 177, 198, 0.7), -6px -6px 14px rgba(255, 255, 255, 0.8);
+}
+
+/* Notifications */
+.dashboard-notif-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.dashboard-notif-btn:hover {
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.dashboard-notif-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: var(--accent); /* Orange for Alert Badge */
+  color: white;
+  border-radius: 50%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* IoT Status Dot */
+.iot-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent); /* Orange for IoT */
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--accent);
+  animation: iotPulse 2s infinite;
+}
+
+@keyframes iotPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.sensor-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-color);
+  box-shadow: var(--shadow-inset-dark), var(--shadow-inset-light);
+  color: var(--accent);
+  margin-right: 10px;
+}
+
+.dashboard-notif-dropdown {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  width: 400px;
+  max-height: 500px;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  box-shadow: var(--shadow-dark);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-notif-dropdown-head {
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+  font-weight: 700;
+  color: var(--text-heading);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-notif-markall {
+  color: var(--primary);
+  font-size: 13px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dashboard-notif-item-btn {
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.1);
+  transition: background 0.2s;
+}
+
+.dashboard-notif-item-btn:hover {
+  background-color: rgba(163, 177, 198, 0.1);
+}
+
+.dashboard-notif-title {
+  font-weight: 600;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.dashboard-notif-body {
+  font-size: 13px;
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+/* Analytics Stats */
+.analytics-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.analytics-stat-card {
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow-dark), var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease;
+}
+
+.analytics-stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.analytics-stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.analytics-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.analytics-status-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.15);
+  font-size: 15px;
+}
+
+.analytics-status-key {
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+.analytics-status-val {
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .dashboard-main {
+    padding: 24px 16px;
+  }
+
+  .dashboard-card {
+    padding: 30px 24px;
+    border-radius: 20px;
+  }
+
+  .dashboard-welcome {
+    font-size: 28px;
+  }
+
+  .analytics-stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.iot-dashboard-hint {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.iot-dashboard-hint code {
+  font-size: 12px;
+  background: rgba(234, 88, 12, 0.12); /* Based on --accent */
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+.iot-dashboard-card .facility-section-title {
+  margin-top: 8px;
+}
+
+.iot-filter-bar {
+  margin-bottom: 12px;
+}
+
+.iot-sync-warning.facility-error {
+  background: rgba(180, 140, 50, 0.1);
+  color: #7a5c10;
+  border: 1px solid rgba(180, 140, 50, 0.3);
+}
+
+.iot-alert-action-label {
+  font-size: 14px;
+  color: #5a6b5c;
+}
+
+.mt-photo-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  max-width: 220px;
+}
+
+.mt-photo-thumb-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+.mt-photo-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mt-status-select {
+  max-width: 140px;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.mt-file-label input[type='file'] {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.facility-inventory-block {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.facility-inv-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.facility-inv-key {
+  min-width: 100px;
+  font-size: 14px;
+  color: #333;
+}
+
+.facility-inv-qty {
+  width: 72px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.facility-book-inventory {
+  margin-bottom: 14px;
+  padding: 12px;
+  background: rgba(22, 163, 74, 0.08); /* Based on --secondary (Green) */
+  border-radius: 8px;
+}
+
+.facility-book-inventory-list {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.facility-hostel-preview {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+}
+
+.facility-preview-block {
+  margin-top: 0.75rem;
+}
+
+.facility-preview-block strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.facility-preview-users {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.facility-inmates-profile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.facility-inmates-profile-list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.facility-inmates-profile-list li:last-child {
+  border-bottom: none;
+}
+
+/* Maintenance issue: description block in issue modal */
+.facility-user-detail p.mt-issue-desc-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.mt-issue-desc-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.facility-stock-list,
+.facility-menu-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.facility-stock-row,
+.facility-menu-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.facility-book-inventory-list li {
+  margin-bottom: 4px;
+}
+
+.facility-inv-val {
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+@media (max-width: 720px) {
+  .dashboard-header {
+    padding: 0 20px;
+  }
+
+  .dashboard-main {
+    padding: 24px 16px 32px;
+  }
+
+  .dashboard-card {
+    padding: 32px 24px;
+    max-width: 100%;
+  }
+
+  .dashboard-card h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-header-actions {
+    gap: 8px;
+  }
+
+  .dashboard-header-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .dashboard-profile-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dashboard-profile-dropdown {
+    min-width: 260px;
+  }
+
+  .dashboard-profile-dropdown-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* ── Emergency Response ── */
+.emergency-card {
+  background: #e8edf5 !important;
+  border: none !important;
+  box-shadow: 8px 8px 20px rgba(163, 177, 198, 0.55), -8px -8px 20px rgba(255, 255, 255, 0.85) !important;
+}
+
+.emergency-card .facility-page-header h2 {
+  color: #dc2626;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.emergency-content-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 0 20px;
+}
+
+.emergency-form-card {
+  width: 100%;
+  max-width: 560px;
+  background: #e8edf5;
+  box-shadow: inset 4px 4px 10px rgba(163, 177, 198, 0.4), inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  padding: 32px 36px;
+}
+
+.emergency-subtitle {
+  font-size: 14px;
+  color: var(--text-main);
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.emergency-form-card .facility-form label {
+  color: var(--text-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.emergency-form-card .facility-form select,
+.emergency-form-card .facility-form textarea {
+  background: #e8edf5 !important;
+  box-shadow: inset 3px 3px 7px rgba(163, 177, 198, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.85) !important;
+  border: none !important;
+  color: var(--text-main) !important;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+  transition: box-shadow 0.2s ease;
+}
+
+.emergency-form-card .facility-form select:focus,
+.emergency-form-card .facility-form textarea:focus {
+  box-shadow: inset 4px 4px 10px rgba(163, 177, 198, 0.55), inset -4px -4px 10px rgba(255, 255, 255, 0.9) !important;
+}
+
+.emergency-form-card .facility-form textarea::placeholder {
+  color: #aab4c8;
+}
+
+.emergency-form-card .facility-form select option {
+  background: #f8fbff;
+  color: var(--text-main);
+}
+
+.emergency-send-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+  box-shadow: 4px 4px 14px rgba(220, 38, 38, 0.35), -2px -2px 8px rgba(255, 255, 255, 0.5) !important;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding: 14px 28px !important;
+  margin-top: 4px;
+}
+
+.emergency-send-btn:hover:not(:disabled) {
+  box-shadow: 6px 6px 20px rgba(220, 38, 38, 0.45), -2px -2px 8px rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.emergency-card .facility-error {
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: #c62828;
+}
+
+.emergency-card .facility-modal-hint {
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  color: #15803d;
+}
+
+/* ── Detail cards — light neumorphic base ── */
+.dashboard-card.dark-card {
+  background: #e8edf5;
+  color: var(--text-heading);
+  box-shadow: 8px 8px 20px rgba(163, 177, 198, 0.55), -8px -8px 20px rgba(255, 255, 255, 0.85);
+  border: none;
+}
+
+.dashboard-card.dark-card .facility-page-header h2,
+.dashboard-card.dark-card h1,
+.dashboard-card.dark-card h2,
+.dashboard-card.dark-card h3 {
+  color: var(--text-heading);
+}
+
+.dashboard-card.dark-card .facility-section-title {
+  color: #6b7a99;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.3);
+}
+
+.dashboard-card.dark-card .facility-table th {
+  background: rgba(163, 177, 198, 0.15);
+  color: #6b7a99;
+}
+
+.dashboard-card.dark-card .facility-table td {
+  color: var(--text-main);
+  border-bottom-color: rgba(163, 177, 198, 0.15);
+}
+
+.dashboard-card.dark-card .facility-table-wrap {
+  background: #e8edf5;
+  box-shadow: inset 3px 3px 8px rgba(163, 177, 198, 0.35), inset -3px -3px 8px rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+/* ── Professional page alignment ── */
+.dashboard-main-with-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.facility-card {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── Sidebar open/close container transitions ── */
+.dashboard-container.sidebar-open .dashboard-main-with-sidebar {
+  transition: all 0.3s ease;
+}
+
+.dashboard-container.sidebar-closed .dashboard-main-with-sidebar {
+  transition: all 0.3s ease;
+}
+
+/* ── Detail card content — neumorphic light theme ── */
+.dashboard-card.dark-card .facility-filter-item span,
+.dashboard-card.dark-card .iot-dashboard-hint,
+.dashboard-card.dark-card p {
+  color: var(--text-main);
+}
+
+.dashboard-card.dark-card .facility-filter-item select,
+.dashboard-card.dark-card .facility-filter-item input[type="text"] {
+  background: #e8edf5;
+  box-shadow: inset 3px 3px 7px rgba(163, 177, 198, 0.4), inset -3px -3px 7px rgba(255, 255, 255, 0.85);
+  border: none;
+  color: var(--text-main);
+}
+
+.dashboard-card.dark-card .facility-filter-item select option {
+  background: #f8fbff;
+  color: var(--text-main);
+}
+
+.dashboard-card.dark-card .facility-error {
+  background: rgba(229, 57, 53, 0.08);
+  border-color: rgba(229, 57, 53, 0.25);
+  color: #c62828;
+}
+
+.dashboard-card.dark-card .facility-modal-hint {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.25);
+  color: #15803d;
+}
+
+.dashboard-card.dark-card .facility-btn-edit {
+  background: #e8edf5;
+  box-shadow: 4px 4px 10px rgba(163, 177, 198, 0.45), -4px -4px 10px rgba(255, 255, 255, 0.85);
+  border: none;
+  color: var(--primary);
+}
+
+.dashboard-card.dark-card .facility-btn-delete {
+  background: #e8edf5;
+  box-shadow: 4px 4px 10px rgba(163, 177, 198, 0.45), -4px -4px 10px rgba(255, 255, 255, 0.85);
+  border: none;
+  color: #e53935;
+}
+
+.dashboard-card.dark-card .facility-btn-book {
+  background: #e8edf5;
+  box-shadow: 4px 4px 10px rgba(163, 177, 198, 0.45), -4px -4px 10px rgba(255, 255, 255, 0.85);
+  border: none;
+  color: var(--secondary);
+}
+
+.dashboard-card.dark-card .analytics-stat-card {
+  background: #e8edf5;
+  box-shadow: 5px 5px 12px rgba(163, 177, 198, 0.45), -5px -5px 12px rgba(255, 255, 255, 0.85);
+  border: none;
+}
+
+.dashboard-card.dark-card .analytics-stat-label {
+  color: #6b7a99;
+}
+
+.dashboard-card.dark-card .analytics-stat-value {
+  color: var(--primary);
+}
+
+.dashboard-card.dark-card .analytics-status-key {
+  color: var(--text-main);
+  opacity: 0.8;
+}
+
+.dashboard-card.dark-card .analytics-status-val {
+  color: var(--text-heading);
+}
+
+.dashboard-card.dark-card .analytics-status-list li {
+  border-bottom-color: rgba(163, 177, 198, 0.2);
+}
+
+.dashboard-card.dark-card .facility-empty,
+.dashboard-card.dark-card .facility-loading {
+  color: #8899aa;
+}
+
+.dashboard-card.dark-card .iot-dashboard-hint code {
+  background: rgba(234, 88, 12, 0.1);
+  color: var(--accent);
+}
+
+/* ── Notification modal (centered overlay) ── */
+.facility-modal-notif {
+  max-width: 480px;
+  padding: 0;
+  overflow: hidden;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.facility-modal-notif .dashboard-notif-dropdown-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dashboard-notif-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #999;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  line-height: 1;
+}
+
+.dashboard-notif-close:hover {
+  color: var(--text-heading);
+  background: rgba(163, 177, 198, 0.15);
+}
+
+.facility-modal-notif .dashboard-notif-list {
+  overflow-y: auto;
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.facility-modal-notif .dashboard-notif-empty {
+  padding: 32px 24px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.facility-modal-notif .dashboard-notif-item-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 14px 24px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(163, 177, 198, 0.1);
+  transition: background 0.15s;
+}
+
+.facility-modal-notif .dashboard-notif-item-btn:hover {
+  background: rgba(163, 177, 198, 0.1);
+}
+
+.facility-modal-notif .dashboard-notif-item.read .dashboard-notif-item-btn {
+  opacity: 0.55;
+}
+
+.facility-modal-notif .dashboard-notif-title {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-heading);
+}
+
+.facility-modal-notif .dashboard-notif-body {
+  display: block;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.facility-modal-notif .dashboard-notif-meta {
+  display: block;
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+}
